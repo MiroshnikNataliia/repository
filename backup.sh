@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Шлях до каталогу, який потрібно зберегти
-SOURCE_DIR="/home/user/documents"
+SOURCE_DIR="/mnt/c/dotnet/new/"
 
 # Шлях до каталогу для резервних копій
-BACKUP_DIR="/home/user/backups"
+BACKUP_DIR="/mnt/c/backups/"
 
 # Ім'я архіву
 ARCHIVE_NAME="backup_$(date +%Y%m%d_%H%M%S).tar.gz"
@@ -16,4 +16,4 @@ ARCHIVE_PATH="$BACKUP_DIR/$ARCHIVE_NAME"
 mkdir -p "$BACKUP_DIR"
 
 # Резервне копіювання каталогу
-tar -czf "$ARCHIVE_PATH" "$SOURCE_DIR"
+tar -czf "$ARCHIVE_PATH" --exclude="*/*.dat" "$SOURCE_DIR"
